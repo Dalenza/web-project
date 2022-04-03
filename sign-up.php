@@ -26,7 +26,7 @@
       <label for="pw">Password:</label>
     <input type="password" name="pw" id="pw" required>
     </div>
-    <p>already have an account? <a href="">Sign in</a></p>
+    <p>already have an account? <a href="index.php">Sign in</a></p>
     <input type="submit" value="Create Account">
   </form>
 </body>
