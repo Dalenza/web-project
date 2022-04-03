@@ -49,7 +49,7 @@
         }
     ?>
     <div class="container">
-        <form class="left" method="post" action="<?php echo $_SERVER['PHP_SELF']?>">
+        <form class="left" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
             <div class="left__header">
                 <h1>Welcome back</h1>
                 <p>welcome back! please enter your details</p>
