@@ -32,7 +32,7 @@
       <label for="pw">Password:</label>
       <input type="password" name="pw" id="pw" required>
     </div>
-    <p>already have an account? <a href="index.php">Sign in</a></p>
+    <p>already have an account? <a class="link" href="index.php">Sign in</a></p>
     <input class="btn btn--sign-up" type="submit" value="Create Account">
   </form>
 </body>

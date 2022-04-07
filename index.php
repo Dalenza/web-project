@@ -30,7 +30,7 @@
                     <input type="password" name="password" id="password" required>
                 </div>
                 <input class="btn btn--log-in" type="submit" value="Sign in">
-                <p>don't have an account? <a href="sign-up.php">Sign up</a></p>
+                <p>don't have an account? <a  class="link" href="sign-up.php">Sign up</a></p>
             </div>
         </form>
         <div class="right">
