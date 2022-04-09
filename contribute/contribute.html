@@ -26,7 +26,7 @@
                         <a class="link" href="../contribute/contribute.html">Contribute</a>
                     </li>
                     <li class="nav-item">
-                        <a class="link" href="../index/index.php">Log out</a>
+                        <a class="link" href="../index/index.html">Log out</a>
                     </li>
                 </ul>
             </div>
@@ -34,8 +34,50 @@
         <main class="content-wrapper">
             <h2 class="welcome">Don't see what you're looking for</h2>
             <h3 class="search">Help us enrich our database!</h3>
-            <form action="#">
-
+            <form class="form" action="#">
+                <div class="form-control">
+                    <label for="title">title:</label>
+                    <input type="text" name="title" id="title" required placeholder="exp: examen analyse L1Sem1">
+                </div>
+                <div class="form-control">
+                    <label for="category">category:</label>
+                    <div class="select">
+                        <select name="category" id="category" required>
+                            <option value="cours">cours</option>
+                            <option value="serie">serie</option>
+                            <option value="examen principal">examen</option>
+                            <option value="examen partiel">ds</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="subject">subject:</label>
+                    <div class="select">
+                        <select name="subject" required>
+                            <option value="math">math</option>
+                            <option value="web">web</option>
+                            <option value="systeme d'exploitation">system d'exploitation</option>
+                            <option value="logique formelle">logique formelle</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="year">year:</label>
+                    <div class="select" required>
+                        <select name="year">
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <div class="file-input">
+                        <input type="file" id="file" class="file" required>
+                        <label for="file">Select file</label>
+                    </div>
+                    <input class="btn btn--submit" type="submit" value="submit">
+                </div>
             </form>
         </main>
 
