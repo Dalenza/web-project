@@ -1,0 +1,13 @@
+.link {
+    color: #fff;
+    font-size: 18px;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.link:hover::before {
+    background-color: #f5cc5ce5;
+}
