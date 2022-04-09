@@ -1,0 +1,56 @@
+body {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0;
+  max-width: 500px;
+  background-color: #F5CB5C;
+}
+
+.container>h1,
+.container>p {
+  text-align: center;
+}
+
+.container a {
+  position: relative;
+  text-decoration: none;
+  color: #242423;
+}
+
+.container a::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 5px;
+  background-color: #24242370;
+}
+
+.container a:hover::before {
+  width: 100%;
+  transition: width 0.3s ease-out;
+
+}
+
+
+.btn--sign-up {
+  background-color: #333533;
+  color: #fff;
+}
+
+@media (max-width:520px) {
+
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+  }
+}
