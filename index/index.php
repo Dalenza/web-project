@@ -34,7 +34,7 @@
             </div>
         </form>
         <div class="right">
-            <img src="assets/undraw_social_sharing_re_pvmr.svg" alt="">
+            <img src="../assets/undraw_social_sharing_re_pvmr.svg" alt="">
         </div>
     </div>
     <script src="index.js"></script>
