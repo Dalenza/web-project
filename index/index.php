@@ -27,8 +27,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="base.css">
     <title>Study Resources</title>
     <script>
         function func(){
@@ -50,7 +50,7 @@
     ?>
     <div class="container">
         <form class="left" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
-            <div class="left__header">
+        <div class="left__header">
                 <h1>Welcome back</h1>
                 <p>welcome back! please enter your details</p>
             </div>
@@ -63,15 +63,14 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" required>
                 </div>
-                <input class="btn" type="submit" value="Sign in">
-                <p>don't have an account? <a href="sign-up.php">Sign up</a></p>
+                <input class="btn btn--log-in" type="submit" value="Sign in">
+                <p>don't have an account? <a class="link" href="../sign-up/sign-up.php">Sign up</a></p>
             </div>
         </form>
         <div class="right">
-            <img src="assets/undraw_social_sharing_re_pvmr.svg" alt="">
+            <img src="../assets/undraw_social_sharing_re_pvmr.svg" alt="">
         </div>
     </div>
     <script src="index.js"></script>
 </body>
-
 </html>
