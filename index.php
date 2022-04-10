@@ -1,3 +1,22 @@
+<?php
+    require_once "control.php";
+    session_start();
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $mail = $_POST['email'];
+        $password = $_POST['password'];
+        $query = "SELECT * FROM USERS WHERE MAIL = '$mail' and PASS = '$password'";
+        $res = mysqli_query($conn, $query);
+        if(mysqli_num_rows($res) > 0){
+            $row = mysqli_fetch_assoc($res);
+            $_SESSION['fname'] = $row['fname'];
+            $_SESSION['lname'] = $row['lname'];
+            header("location: home.php");
+        }
+        else
+            $error = "invalid Email or Password";
+    }
+    mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,14 +27,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="base.css">
     <title>Study Resources</title>
+    <script>
+        function func(){
+            document.getElementsByClassName("pop-up")[0].style.display = 'none';
+            document.getElementsByClassName("modal")[0].style.display = 'none';
+        }
+    </script>
 </head>
 
 <body>
+    <?php
+        if(isset($error)){
+            echo "<div class='modal'></div>";
+            echo "<div class='pop-up'>";
+            echo "<p>$error</p>";
+            echo "<img src='assets\x-button-327024.png' class='x' onclick='func()'>";
+            echo "</div>";
+        }
+    ?>
     <div class="container">
-        <form class="left" method="POST" action="#">
+        <form class="left" method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
             <div class="left__header">
                 <h1>Welcome back</h1>
                 <p>welcome back! please enter your details</p>
@@ -29,7 +63,7 @@
                     <label for="password">Password:</label>
                     <input type="password" name="password" id="password" required>
                 </div>
-                <input class="btn btn--log-in" type="submit" value="Sign in">
+                <input class="btn" type="submit" value="Sign in">
                 <p>don't have an account? <a href="sign-up.php">Sign up</a></p>
             </div>
         </form>
