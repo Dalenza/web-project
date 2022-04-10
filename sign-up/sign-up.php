@@ -1,5 +1,5 @@
 <?php
-  require_once "control.php";
+  require_once "../config.php";
   session_start();
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $fname = $_POST['fname'];
@@ -50,7 +50,7 @@
           echo "<div class='modal'></div>";
           echo "<div class='pop-up'>";
           echo "<p>$res</p>";
-          echo "<img src='assets\x-button-327024.png' class='x' onclick='func()'>";
+          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
           echo "</div>";
       }
     ?>
