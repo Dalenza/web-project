@@ -97,7 +97,7 @@ select {
 
 .form-control>input {
   padding: 0.25rem 0.5rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   border-radius: 12px;
   background-color: #fff;
   border: none;
