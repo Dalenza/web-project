@@ -14,27 +14,32 @@
 </head>
 
 <body>
-    <form class="container" action="#" method="POST">
+    <form class="container" id="form" action="#" method="POST">
         <h1>Sign up with your email</h1>
         <div class="form-control">
             <label for="fname">First Name:</label>
-            <input type="text" name="fname" id="fname" required>
+            <input type="text" name="fname" id="fname">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="lname">Last Name:</label>
-            <input type="text" name="lname" id="lname" required>
+            <input type="text" name="lname" id="lname">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="pw">Password:</label>
-            <input type="password" name="pw" id="pw" required>
+            <input type="password" name="pw" id="pw">
+            <small class="error-msg"></small>
         </div>
         <p>already have an account? <a class="link" href="../index/index.html">Sign in</a></p>
-        <input class="btn btn--sign-up" type="submit" value="Create Account">
+        <input class="btn btn--sign-up" id="btn-submit" type="submit" value="Create Account">
     </form>
+    <script src="script.js"></script>
 </body>
 
 </html>
