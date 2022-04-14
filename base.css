@@ -6,6 +6,7 @@
 :root {
   --body-bg-color: #242423;
   --text-color: #333533;
+  --yellow: #F5CB5C;
   --hd-color: #242423;
   --primary-font: "Inconsolata", monospace;
   --hd-ft-size: 2rem;
@@ -113,9 +114,9 @@ select {
   border: 2px solid #e74c3c;
 }
 
-.form-control.error > .error-msg {
-  visibility:visible;
-  color:#e74c3c;
+.form-control.error>.error-msg {
+  visibility: visible;
+  color: #e74c3c;
 }
 
 
@@ -123,8 +124,8 @@ select {
   border: 2px solid #2ecc71;
 }
 
-.form-control.success > .error-msg{
-  visibility:hidden;
+.form-control.success>.error-msg {
+  visibility: hidden;
 }
 
 .btn {
