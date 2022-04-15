@@ -43,62 +43,72 @@
       <h1>Hi, <b style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
-      <div class="filters">
-        <div class="select">
-          <select name="category">
-            <option value="cours">cours</option>
-            <option value="serie">serie</option>
-            <option value="examen principal">examen</option>
-            <option value="examen partiel">ds</option>
-          </select>
-        </div>
-        <div class="select">
-          <select name="subject">
-            <option value="math">math</option>
-            <option value="web">web</option>
-            <option value="systeme d'exploitation">system d'exploitation</option>
-            <option value="logique formelle">logique formelle</option>
-          </select>
-        </div>
-        <div class="select">
-          <select name="year">
-            <option value="1">1st</option>
-            <option value="2">2nd</option>
-            <option value="3">3rd</option>
-          </select>
-        </div>
-      </div>
-      <div class="pdf-cards">
-        <div class="pdf-cards-header">
-          <span>title</span>
-          <span>category</span>
-          <span>subject</span>
-          <span>year</span>
-        </div>
-        <div class="pdf-card">
-          <div class="title">Lorem ipsum dolor sit amet.</div>
-          <div class="category">Lorem ipsum dolor sit amet consectetur.</div>
-          <div class="subject">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Distinctio, voluptatem!
+      <form method="POST" action="<?php $_SERVER["PHP_SELF"] ?>">
+        <div class="filters">
+          <div class="select">
+            <select name="category" required>
+              <option value="cours">cours</option>
+              <option value="serie">serie</option>
+              <option value="examen">examen</option>
+              <option value="ds">ds</option>
+            </select>
           </div>
-          <div class="year">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-            repellat nemo!
+          <div class="select">
+            <select name="subject" required>
+              <option value="math">math</option>
+              <option value="web">web</option>
+              <option value="systeme d'exploitation">system d'exploitation</option>
+              <option value="logique formelle">logique formelle</option>
+            </select>
+          </div>
+          <div class="select">
+            <select name="year" required>
+              <option value="1">1st</option>
+              <option value="2">2nd</option>
+              <option value="3">3rd</option>
+            </select>
+          </div>
+          <div>
+            <input type="submit">
           </div>
         </div>
-        <div class="pdf-card">
-          <div class="title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi culpa at ab obcaecati
-            perferendis beatae fuga atque mollitia possimus saepe amet assumenda aspernatur laudantium est vero
-            suscipit
-            accusantium dolorem blanditiis nisi, maiores consectetur ex quam voluptatem! A voluptatum earum
-            consequatur
-            iste quam maxime blanditiis eveniet quos error tempora, harum illum.</div>
-          <div class="category"></div>
-          <div class="subject"></div>
-          <div class="year"></div>
-        </div>
-      </div>
+      </form>
+
+
+
+<?php
+      if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        require_once "../config.php";
+        $category = $_POST['category'];
+        $subject = $_POST['subject'];
+        $year = $_POST['year'];
+        $query = "SELECT * FROM RESOURCES WHERE CATEGORY = \"$category\" and SUBJECT = \"$subject\" and YEAR = \"$year\"";
+        $res = mysqli_query($conn, $query);
+        if(mysqli_num_rows($res) > 0){
+          echo "<div class='pdf-cards'>";
+          echo "<div class='pdf-cards-header'><span>title</span><span>category</span><span>subject</span><span>year</span></div>";
+          while($row = mysqli_fetch_assoc($res)){
+            
+            
+            echo "<div class='pdf-card'>";
+            echo "<div class='title'>" . "<a href='../resources/Compilation.pdf' download>" . $row['title'] . "</a></div>";
+            echo "<div class='category'>" . $row['category'] . "</div>";
+            echo "<div class='subject'>" . $row['subject'] . "</div>";
+            echo "<div class='year'>" . $row['year'] . "</div>";
+            echo "</div>";
+          }
+
+
+          echo "</div>";
+        }
+        else{
+          echo "aucun document trouvé";
+        }
+        mysqli_close($conn);
+      }
+
+?>
+
     </main>
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
