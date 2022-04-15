@@ -91,7 +91,7 @@
             
             
             echo "<div class='pdf-card'>";
-            echo "<div class='title'>" . "<a href='../resources/Compilation.pdf' download>" . $row['title'] . "</a></div>";
+            echo "<div class='title'>" . "<a href='../resources/" . $row['file'] . "' download>" . $row['file'] . "</a></div>";
             echo "<div class='category'>" . $row['category'] . "</div>";
             echo "<div class='subject'>" . $row['subject'] . "</div>";
             echo "<div class='year'>" . $row['year'] . "</div>";
