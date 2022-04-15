@@ -6,7 +6,7 @@
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $password = $_POST['pw'];
-    $query = "SELECT * FROM USERS WHERE FNAME = '$fname' AND LNAME = '$lname' or MAIL = '$email'";
+    $query = "SELECT * FROM USERS WHERE MAIL = '$email'";
     if(mysqli_num_rows(mysqli_query($conn, $query)) > 0)
       $res = "Utilisateur deja Existant ou Email deja utilisé";
     else{
