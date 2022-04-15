@@ -44,7 +44,16 @@
     </script>
 </head>
 <body>
-    <form class="container" id="form" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+    <?php
+      if(isset($res)){
+          echo "<div class='modal'></div>";
+          echo "<div class='pop-up'>";
+          echo "<p>$res</p>";
+          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
+          echo "</div>";
+      }
+    ?>
+  <form class="container" id="form" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
         <h1>Sign up with your email</h1>
         <div class="form-control">
             <label for="fname">First Name:</label>
@@ -68,16 +77,7 @@
         </div>
         <p>already have an account? <a class="link" href="../index/index.php">Sign in</a></p>
         <input class="btn btn--sign-up" id="btn-submit" type="submit" value="Create Account">
-    </form>
-    <script src="script.js"></script>
+  </form>
+  <script src="script.js"></script>
 </body>
-<?php
-      if(isset($res)){
-          echo "<div class='modal'></div>";
-          echo "<div class='pop-up'>";
-          echo "<p>$res</p>";
-          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
-          echo "</div>";
-      }
-?> 
 </html>

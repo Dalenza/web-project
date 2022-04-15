@@ -29,7 +29,7 @@
                 <ul class="nav-items">
                     <li class="nav-item"><a class="link" href="../home/home.php">Home</a></li>
                     <li class="nav-item">
-                        <a class="link" href="../about/about.html">About us</a>
+                        <a class="link" href="../about/about.php">About us</a>
                     </li>
                     <li class="nav-item">
                         <a class="link" href="<?php $_SERVER['PHP_SELF']?>">Contribute</a>
