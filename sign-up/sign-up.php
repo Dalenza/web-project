@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="sign-up.css">
     <title>Sign Up</title>
+    
     <script>
         function func() {
             document.getElementsByClassName("pop-up")[0].style.display = 'none';
@@ -42,8 +43,6 @@
         }
     </script>
 </head>
-
-
 <body>
     <?php
       if(isset($res)){
@@ -81,5 +80,4 @@
   </form>
   <script src="script.js"></script>
 </body>
-
 </html>
