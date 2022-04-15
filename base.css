@@ -90,7 +90,7 @@ select {
 .form-control {
   display: flex;
   flex-direction: column;
-  margin: 0.5rem 0;
+  margin: 0.5rem auto;
   width: 100%;
   max-width: 320px;
 }
