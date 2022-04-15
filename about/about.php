@@ -30,11 +30,7 @@
                 <ul class="nav-items">
                     <li class="nav-item"><a class="link" href="../home/home.php">Home</a></li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="link" href="<?php $_SERVER['PHP_SELF'] ?>">About us</a>
-=======
-                        <a class="link" href="<?php $_SERVER['PHP_SELF']?>">About us</a>
->>>>>>> d26fbae43650200fe4241f843b438d7c71197fe4
                     </li>
                     <li class="nav-item">
                         <a class="link" href="../contribute/contribute.php">Contribute</a>
