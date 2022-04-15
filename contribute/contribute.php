@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['user'])){
+    session_start();
+    if(!isset($_SESSION['user'])){
 		// echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
     header('location:../index/index.php');
     }
@@ -43,11 +43,11 @@
         <main class="content-wrapper">
             <h2 class="welcome">Don't see what you're looking for</h2>
             <h3 class="search">Help us enrich our database!</h3>
-            <form class="form" action="#">
-                <div class="form-control">
+            <form class="form" method="POST" action="../upload.php" enctype="multipart/form-data">
+                <!-- <div class="form-control">
                     <label for="title">title:</label>
                     <input type="text" name="title" id="title" required placeholder="exp: examen analyse L1Sem1">
-                </div>
+                </div> -->
                 <div class="form-control">
                     <label for="category">category:</label>
                     <div class="select">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-control">
                     <div class="file-input">
-                        <input type="file" id="file" class="file" required>
+                        <input type="file" id="file" class="file" name="file" required>
                         <label for="file">Select file</label>
                     </div>
                     <input class="btn btn--submit" type="submit" value="submit">

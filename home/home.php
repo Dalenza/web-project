@@ -16,9 +16,28 @@
   <link rel="stylesheet" href="../base.css" />
   <link rel="stylesheet" href="home.css" />
   <title>Study resources</title>
+
+  <script>
+        function func() {
+            document.getElementsByClassName("pop-up")[0].style.display = 'none';
+            document.getElementsByClassName("modal")[0].style.display = 'none';
+        }
+  </script>
+
+
 </head>
 
 <body>
+  <?php
+      if(isset($_SESSION['msg'])){
+          echo "<div class='modal'></div>";
+          echo "<div class='pop-up'>";
+          echo "<p style='color: #000;'>" . $_SESSION['msg'] . "</p>";
+          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
+          echo "</div>";
+          unset($_SESSION['msg']);
+      }
+    ?>
   <div class="wrapper">
     <header>
       <div class="logo">
@@ -91,7 +110,7 @@
             
             
             echo "<div class='pdf-card'>";
-            echo "<div class='title'>" . "<a href='../resources/" . $row['file'] . "' download>" . $row['file'] . "</a></div>";
+            echo "<div class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></div>";
             echo "<div class='category'>" . $row['category'] . "</div>";
             echo "<div class='subject'>" . $row['subject'] . "</div>";
             echo "<div class='year'>" . $row['year'] . "</div>";
