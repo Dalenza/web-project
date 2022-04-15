@@ -43,36 +43,36 @@
       <h1>Hi, <b style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
-      <form method="POST" action="<?php $_SERVER["PHP_SELF"] ?>">
-        <div class="filters">
-          <div class="select">
-            <select name="category" required>
-              <option value="cours">cours</option>
-              <option value="serie">serie</option>
-              <option value="examen">examen</option>
-              <option value="ds">ds</option>
-            </select>
-          </div>
-          <div class="select">
-            <select name="subject" required>
-              <option value="math">math</option>
-              <option value="web">web</option>
-              <option value="systeme d'exploitation">system d'exploitation</option>
-              <option value="logique formelle">logique formelle</option>
-            </select>
-          </div>
-          <div class="select">
-            <select name="year" required>
-              <option value="1">1st</option>
-              <option value="2">2nd</option>
-              <option value="3">3rd</option>
-            </select>
-          </div>
-          <div>
-            <input type="submit">
-          </div>
+      <form class="filters" id="filters" method="POST" action="<?php  $_SERVER['PHP_SELF'] ?>">
+        <div class="select">
+          <select name="category">
+            <option value="">---</option>  
+            <option value="cours">cours</option>
+            <option value="serie">serie</option>
+            <option value="examen">examen</option>
+            <option value="ds">ds</option>
+          </select>
         </div>
+        <div class="select">
+          <select name="subject">
+            <option value="">---</option>  
+            <option value="math">math</option>
+            <option value="web">web</option>
+            <option value="systeme d'exploitation">system d'exploitation</option>
+            <option value="logique formelle">logique formelle</option>
+          </select>
+        </div>
+        <div class="select">
+          <select name="year">
+            <option value="">---</option>  
+            <option value="1">1st</option>
+            <option value="2">2nd</option>
+            <option value="3">3rd</option>
+          </select>
+        </div>
+        <input class="btn btn--browse" type="submit" value="search">
       </form>
+      
 
 
 
@@ -112,6 +112,7 @@
     </main>
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
+  <script src="home.js"></script>
 </body>
 
 </html>
