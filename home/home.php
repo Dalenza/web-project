@@ -1,6 +1,9 @@
 <?php
   session_start();
-  
+  if(!isset($_SESSION['user'])){
+		// echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
+    header('location:../index/index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,24 +22,25 @@
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="home.html"><img src="../assets/b.png" alt="" /></a>
+        <a class="img" href="<?php $_SERVER['PHP_SELF']?>"><img src="../assets/b.png" alt="" /></a>
       </div>
       <div class="nav">
         <ul class="nav-items">
-          <li class="nav-item"><a class="link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="link" href="<?php $_SERVER['PHP_SELF']?>">Home</a></li>
           <li class="nav-item">
-            <a class="link" href="../about/about.html">About us</a>
+            <a class="link" href="../about/about.php">About us</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../contribute/contribute.html">Contribute</a>
+            <a class="link" href="../contribute/contribute.php">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../index/index.php">Log out</a>
+            <a class="link" href="../logout.php">Log out</a>
           </li>
         </ul>
       </div>
     </header>
     <main class="content-wrapper">
+      <h1>Hi, <b style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
       <div class="filters">

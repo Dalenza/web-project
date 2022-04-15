@@ -1,5 +1,5 @@
 <?php
-  require_once "control.php";
+  require_once "../config.php";
   session_start();
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $fname = $_POST['fname'];
@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="sign-up.css">
     <title>Sign Up</title>
+    
     <script>
         function func() {
             document.getElementsByClassName("pop-up")[0].style.display = 'none';
@@ -42,39 +43,41 @@
         }
     </script>
 </head>
-
-
 <body>
     <?php
       if(isset($res)){
           echo "<div class='modal'></div>";
           echo "<div class='pop-up'>";
           echo "<p>$res</p>";
-          echo "<img src='assets\x-button-327024.png' class='x' onclick='func()'>";
+          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
           echo "</div>";
       }
     ?>
-  <form class="container" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-  <h1>Sign up with your email</h1>
+  <form class="container" id="form" action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+        <h1>Sign up with your email</h1>
         <div class="form-control">
             <label for="fname">First Name:</label>
-            <input type="text" name="fname" id="fname" required>
+            <input type="text" name="fname" id="fname">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="lname">Last Name:</label>
-            <input type="text" name="lname" id="lname" required>
+            <input type="text" name="lname" id="lname">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email">
+            <small class="error-msg"></small>
         </div>
         <div class="form-control">
             <label for="pw">Password:</label>
-            <input type="password" name="pw" id="pw" required>
+            <input type="password" name="pw" id="pw">
+            <small class="error-msg"></small>
         </div>
         <p>already have an account? <a class="link" href="../index/index.php">Sign in</a></p>
-        <input class="btn btn--sign-up" type="submit" value="Create Account">
+        <input class="btn btn--sign-up" id="btn-submit" type="submit" value="Create Account">
   </form>
+  <script src="script.js"></script>
 </body>
-
 </html>

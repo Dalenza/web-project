@@ -1,5 +1,5 @@
 <?php
-    require_once "control.php";
+    require_once "../config.php";
     session_start();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $mail = $_POST['email'];
@@ -8,9 +8,8 @@
         $res = mysqli_query($conn, $query);
         if(mysqli_num_rows($res) > 0){
             $row = mysqli_fetch_assoc($res);
-            $_SESSION['fname'] = $row['fname'];
-            $_SESSION['lname'] = $row['lname'];
-            header("location: home.php");
+            $_SESSION['user'] = $row;
+            header("location: ../home/home.php?".session_name() . '=' . session_id());
         }
         else
             $error = "invalid Email or Password";
@@ -44,7 +43,7 @@
             echo "<div class='modal'></div>";
             echo "<div class='pop-up'>";
             echo "<p>$error</p>";
-            echo "<img src='assets\x-button-327024.png' class='x' onclick='func()'>";
+            echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
             echo "</div>";
         }
     ?>
