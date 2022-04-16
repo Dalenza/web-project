@@ -1,6 +1,8 @@
 <?php
-  require_once "../config.php";
   session_start();
+  if(isset($_SESSION['user']))
+    header('location: ../home/home.php');
+  require_once "../config.php";
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
