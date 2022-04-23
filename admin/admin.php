@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="admin.css" />
   <title>Study resources</title>
 
   <script>
@@ -64,22 +64,22 @@
       <h3 class="search">Browse by category, subject or year</h3>
       <form class="filters" id="filters" method="POST" action="<?php  $_SERVER['PHP_SELF'] ?>">
         <div class="select">
-          <label for="category">category:</label>
-          <select name="category" id="category">
-            <option value="">---</option>  
-          </select>
+            <label for="category">category:</label>
+            <select name="category" id="category">
+                <option value="">---</option>  
+            </select>
         </div>
         <div class="select">
-          <label for="subject">subject:</label>
-          <select id="subject" name="subject">
-            <option value="">---</option>  
-          </select>
+            <label for="subject">subject:</label>
+            <select id="subject" name="subject">
+                <option value="">---</option>  
+            </select>
         </div>
         <div class="select">
-          <label for="year">year:</label>
-          <select id="year" name="year">
-            <option value="">---</option>  
-          </select>
+            <label for="year">year:</label>
+            <select id="year" name="year">
+                <option value="">---</option>  
+            </select>
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
