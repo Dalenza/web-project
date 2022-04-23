@@ -65,6 +65,7 @@ if (!isset($_SESSION['user'])) {
             <select name="subject" required>
               <option value="math">math</option>
               <option value="web">web</option>
+              <option value="analyse">analyse</option>
               <option value="systeme d'exploitation">system d'exploitation</option>
               <option value="logique formelle">logique formelle</option>
             </select>

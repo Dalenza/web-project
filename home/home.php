@@ -90,11 +90,7 @@ if (!isset($_SESSION['user'])) {
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
-      <div class="pdf-cards">
-        <div class="pdf-cards-header">
-          <span>title</span><span>category</span><span>year</span><span>subject</span>
-        </div>
-      </div>
+      
 
 
 
@@ -105,9 +101,31 @@ if (!isset($_SESSION['user'])) {
         $category = $_POST['category'];
         $subject = $_POST['subject'];
         $year = $_POST['year'];
-        $query = "SELECT * FROM RESOURCES WHERE CATEGORY = \"$category\" and SUBJECT = \"$subject\" and YEAR = \"$year\"";
+        $query = "SELECT * FROM RESOURCES";
+        $test = false;
+        if($category != ""){
+          $test = true;
+          $query .= " WHERE CATEGORY = \"$category\"";
+        }
+        if($subject != ""){
+          if($test)
+            $query .= " and SUBJECT = \"$subject\"";
+          else
+            $query .= " WHERE SUBJECT = \"$subject\"";
+          $test = true;
+        }
+        if($year != ""){
+          if($test)
+            $query .= " and YEAR = \"$year\"";
+          else
+            $query .= " WHERE YEAR = \"$year\"";
+        }
         $res = mysqli_query($conn, $query);
         if (mysqli_num_rows($res) > 0) {
+          echo "<div class='pdf-cards'>";
+          echo "<div class='pdf-cards-header'>";
+          echo "<span>title</span><span>category</span><span>year</span><span>subject</span>";
+          echo "</div>";
           while ($row = mysqli_fetch_assoc($res)) {
             echo "<div class='pdf-card'>";
             echo "<span class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></span>";
