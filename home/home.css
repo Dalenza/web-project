@@ -86,9 +86,9 @@ select {
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
-  scrollbar-color: var(--yellow) var(--body-bg-color);
+  /* scrollbar-color: var(--yellow) var(--body-bg-color);
   scrollbar-width: auto;
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable; */
 }
 
 
