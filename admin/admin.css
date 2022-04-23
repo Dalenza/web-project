@@ -1,20 +1,20 @@
 body {
-    position: relative;
-    color: #fff;
+  position: relative;
+  color: #fff;
 }
 
 .link {
-    color: #fff;
-    font-size: 18px;
+  color: #fff;
+  font-size: 18px;
 }
 
 .link:hover {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 .link:hover::before {
-    background-color: #f5cc5ce5;
+  background-color: #f5cc5ce5;
 }
 
 /* main {
@@ -27,84 +27,80 @@ body {
   } */
 
 .welcome {
-    text-align: center;
+  text-align: center;
 }
 
 .search {
-    color: #f5cc5c;
+  color: #f5cc5c;
 }
-
 
 .filters {
-    display: flex;
-
+  display: flex;
 }
 
-.filters>.select>label {
-    display: block;
-    margin-bottom: 0.5rem;
+.filters > .select > label {
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .btn.btn--browse {
-    max-width: 30ch;
-    max-height: 36px;
-    align-self: end;
-    border-radius: 0.5em;
-    border: 2px solid var(--yellow);
-    background-color: transparent;
-    color: var(--yellow);
-    margin: 0.5rem;
-    padding: 0.25em;
-    font-size: 1.25rem;
-    line-height: 1.1;
+  max-width: 30ch;
+  max-height: 36px;
+  align-self: end;
+  border-radius: 0.5em;
+  border: 2px solid var(--yellow);
+  background-color: transparent;
+  color: var(--yellow);
+  margin: 0.5rem;
+  padding: 0.25em;
+  font-size: 1.25rem;
+  line-height: 1.1;
 }
 
 .select {
-    margin: 0.5rem;
+  margin: 0.5rem;
 }
 
-
-
 select {
-    width: 100%;
-    min-width: 15ch;
-    max-width: 30ch;
-    border-radius: 0.5em;
-    border: 2px solid var(--yellow);
-    color: var(--yellow);
-    padding: 0.25em;
-    font-size: 1.25rem;
-    cursor: pointer;
-    line-height: 1.1;
-    background-color: var(--body-bg-color);
+  width: 100%;
+  min-width: 15ch;
+  max-width: 30ch;
+  border-radius: 0.5em;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  padding: 0.25em;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: var(--body-bg-color);
 }
 
 .pdf-cards {
-    margin: 0.5rem 0;
-    width: 100%;
+  margin: 0.5rem 0;
+  width: 100%;
 }
 
 .pdf-cards-header {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 3px solid #f5cc5c;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 3px solid #f5cc5c;
 }
 
-.pdf-cards-header>* {
-    width: 25%;
-    text-align: center;
+.pdf-cards-header > * {
+  width: 25%;
+  text-align: center;
 }
 
 .pdf-card {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0.5rem 0;
-    min-height: 100px;
-    border: 3px solid #f5cc5c;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0.5rem 0;
+  min-height: 100px;
+  border: 3px solid #f5cc5c;
 }
 
-.pdf-card>* {
-    width: 25%;
-    padding: 0.25rem;
+.pdf-card > * {
+  width: 25%;
+  padding: 0.25rem;
 }

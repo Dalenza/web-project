@@ -34,13 +34,12 @@ body {
   color: #f5cc5c;
 }
 
-
 .filters {
   display: flex;
   margin-bottom: 1.25rem;
 }
 
-.filters>.select>label {
+.filters > .select > label {
   display: block;
   margin-bottom: 0.5rem;
   color: var(--yellow);
@@ -63,8 +62,6 @@ body {
 .select {
   margin: 0.5rem;
 }
-
-
 
 select {
   width: 100%;
@@ -91,14 +88,13 @@ select {
   scrollbar-gutter: stable; */
 }
 
-
 .pdf-cards-header {
   display: flex;
   justify-content: space-around;
   border-bottom: 3px solid #f5cc5c;
 }
 
-.pdf-cards-header>* {
+.pdf-cards-header > * {
   padding: 0.25rem;
   width: 25%;
   text-align: center;
@@ -119,7 +115,7 @@ select {
   box-shadow: 5px 5px 0px -2px var(--yellow);
 }
 
-.pdf-card>* {
+.pdf-card > * {
   background-color: var(--yellow);
   color: var(--body-bg-color);
   border-radius: 5px;
@@ -128,7 +124,7 @@ select {
   padding: 0.25rem;
 }
 
-.title>a {
+.title > a {
   text-decoration: none;
   color: var(--body-bg-color);
   cursor: pointer;

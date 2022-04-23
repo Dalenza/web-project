@@ -21,4 +21,3 @@
 
   mysqli_close($conn);
   header("location:home/home.php");
-?>
