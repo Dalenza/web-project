@@ -37,6 +37,7 @@ body {
 
 .filters {
   display: flex;
+  margin-bottom: 1.25rem;
 }
 
 .filters>.select>label {
@@ -68,7 +69,7 @@ body {
 select {
   width: 100%;
   min-width: 15ch;
-  max-width: 30ch;
+  max-width: 180px;
   border-radius: 0.5em;
   border: 2px solid var(--yellow);
   color: var(--yellow);
@@ -81,8 +82,15 @@ select {
 
 .pdf-cards {
   margin: 0.5rem 0;
+  max-height: 1200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   width: 100%;
+  scrollbar-color: var(--yellow) var(--body-bg-color);
+  scrollbar-width: auto;
+  scrollbar-gutter: stable;
 }
+
 
 .pdf-cards-header {
   display: flex;
@@ -102,7 +110,7 @@ select {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 0.5rem 0;
+  margin: 1.25rem 0.5rem;
   min-height: 70px;
   border: 2px solid var(--yellow);
 }
