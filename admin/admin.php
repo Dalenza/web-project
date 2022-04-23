@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="admin.css" />
   <title>Study resources</title>
 
   <script>
@@ -63,38 +63,26 @@
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
       <form class="filters" id="filters" method="POST" action="<?php  $_SERVER['PHP_SELF'] ?>">
-      <div class="select">
-          <label for="category">category:</label>
-          <select name="category" id="category">
-            <option value="">---</option>
-            <option value="cours">cours</option>
-            <option value="serie">serie</option>
-            <option value="examen principal">examen</option>
-            <option value="examen partiel">ds</option>
-          </select>
+        <div class="select">
+            <label for="category">category:</label>
+            <select name="category" id="category">
+                <option value="">---</option>  
+            </select>
         </div>
         <div class="select">
-          <label for="year">year:</label>
-          <select id="year" name="year">
-            <option value="">---</option>
-            <option value="1">1st</option>
-            <option value="2">2nd</option>
-            <option value="3">3rd</option>
-          </select>
+            <label for="subject">subject:</label>
+            <select id="subject" name="subject">
+                <option value="">---</option>  
+            </select>
         </div>
         <div class="select">
-          <label for="subject">subject:</label>
-          <select id="subject" name="subject">
-            <option value="">---</option>
-          </select>
+            <label for="year">year:</label>
+            <select id="year" name="year">
+                <option value="">---</option>  
+            </select>
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
-      <div class="pdf-cards">
-        <div class="pdf-cards-header">
-          <span>title</span><span>category</span><span>year</span><span>subject</span>
-        </div>
-      </div>
       
 
 
@@ -108,12 +96,16 @@
         $query = "SELECT * FROM RESOURCES WHERE CATEGORY = \"$category\" and SUBJECT = \"$subject\" and YEAR = \"$year\"";
         $res = mysqli_query($conn, $query);
         if(mysqli_num_rows($res) > 0){
+          echo "<div class='pdf-cards'>";
+          echo "<div class='pdf-cards-header'><span>title</span><span>category</span><span>subject</span><span>year</span></div>";
           while($row = mysqli_fetch_assoc($res)){
+            
+            
             echo "<div class='pdf-card'>";
-            echo "<span class='title'>"."<a href='../resources/".$row['filename']."' download>".$row['filename']."</a></span>";
-            echo "<span class='category'>".$row['category']."</span>";
-            echo "<span class='year'>".$row['year']."</span>";
-            echo "<span class='subject'>".$row['subject']."</span>";
+            echo "<div class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></div>";
+            echo "<div class='category'>" . $row['category'] . "</div>";
+            echo "<div class='subject'>" . $row['subject'] . "</div>";
+            echo "<div class='year'>" . $row['year'] . "</div>";
             echo "</div>";
           }
 
