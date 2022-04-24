@@ -133,7 +133,8 @@ if (!isset($_SESSION['user'])) {
             echo "<span class='year'>" . $row['year'] . "</span>";
             echo "<span class='subject'>" . $row['subject'] . "</span>";
             echo "<form method='POST' action='../delete.php'>
-            <a href='../delete.php'>delete</a>
+            <input name='id' value='" . $row['id'] ."' hidden>
+            <button type='submit'>Delete</button>
             </form>";
             // echo "<a href=\"delete.php\">" . "update</a>";
             echo "</div>";

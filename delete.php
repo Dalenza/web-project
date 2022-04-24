@@ -1,14 +1,14 @@
 <?php
   session_start();
   if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
-    // header('location:index/index.php');
+    echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
+    header('location:index/index.php');
   }
   require_once "config.php";
-  $query = "SELECT FILENAME FROM RESOURCES WHERE ID = " . 30;
+  $query = "SELECT FILENAME FROM RESOURCES WHERE ID = " . $_POST['id'];
   $res = mysqli_query($conn, $query);
   $filename = mysqli_fetch_assoc($res);
-  $query = "DELETE FROM RESOURCES WHERE ID = " . 30;
+  $query = "DELETE FROM RESOURCES WHERE ID = " . $_POST['id'];
   mysqli_query($conn, $query);
   if(unlink('resources/'.$filename['FILENAME']))
     $msg = "Document deleted successfully";
