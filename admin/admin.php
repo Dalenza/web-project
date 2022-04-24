@@ -136,6 +136,14 @@ if (!isset($_SESSION['user'])) {
             <input name='id' value='" . $row['id'] ."' hidden>
             <button type='submit'>Delete</button>
             </form>";
+            echo "<form method='POST' action='../update.php'>
+            <input name='id' value='" . $row['id'] ."' hidden>
+            <input name='filename' value='" . $row['filename'] ."'>
+            <input name='category' value='" . $row['category'] ."'>
+            <input name='subject' value='" . $row['subject'] ."'>
+            <input name='year' value='" . $row['year'] ."'>
+            <button type='submit'>update</button>
+            </form>";
             // echo "<a href=\"delete.php\">" . "update</a>";
             echo "</div>";
           }

@@ -6,16 +6,19 @@
   }
   require_once "config.php";
   $id = $_POST['id'];
+  $newname = $_POST['filename'];
+  $category = $_POST['category'];
+  $subject = $_POST['subject'];
+  $year = $_POST['year'];
+
   $query = "SELECT FILENAME FROM RESOURCES WHERE ID = " . $id;
   $res = mysqli_query($conn, $query);
-  $filename = mysqli_fetch_assoc($res);
-  $query = "DELETE FROM RESOURCES WHERE ID = " . $id;
-  mysqli_query($conn, $query);
-  if(unlink('resources/'.$filename['FILENAME']))
-    $msg = "Document deleted successfully";
+  $oldname = mysqli_fetch_assoc($res);
+  $query = "UPDATE RESOURCES SET filename = '" . $newname . "' , category = '" . $category ."', subject = '" . $subject  . "', year = '" . $year . "' WHERE ID = " . $id;
+  if(mysqli_query($conn, $query) and rename('resources/' . $oldname['FILENAME'], 'resources/' . $newname))
+    $msg = "Document updated successfully";
   else
     $msg = "something went wrong";
   $_SESSION['msg'] = $msg;
-
   mysqli_close($conn);
   header("location: admin/admin.php");
