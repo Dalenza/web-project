@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (mysqli_num_rows(mysqli_query($conn, $query)) > 0)
     $res = "Utilisateur deja Existant ou Email deja utilisé";
   else {
-    $query = "INSERT INTO USERS(FNAME, LNAME, MAIL, PASS) values('$fname', '$lname', '$email', '$password')";
+    $query = "INSERT INTO USERS(FNAME, LNAME, MAIL, PASS, ROLE) values('$fname', '$lname', '$email', '$password', 'user')";
     if (mysqli_query($conn, $query))
       $res = "utilisateur ajouté avec succés";
     else

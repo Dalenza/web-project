@@ -4,6 +4,10 @@
     // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
     header('location:index/index.php');
   }
+  if($_SESSION['user']['role'] === 'admin')
+    $link = "admin/admin.php";
+  else
+    $link = "home/home.php";
   require_once "config.php";
   $filename = $_FILES['file']['name'];
   $category = $_POST['category'];
@@ -20,4 +24,4 @@
   $_SESSION['msg'] = $msg;
 
   mysqli_close($conn);
-  header("location:home/home.php");
+  header("location:" . $link);

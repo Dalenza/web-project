@@ -1,7 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['user']))
-  header('location: ../home/home.php');
+if (isset($_SESSION['user'])){
+  if($_SESSION['user']['role'] == "admin")
+    header("location: ../admin/admin.php");
+  else
+    header('location: ../home/home.php');
+}
 require_once "../config.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $mail = $_POST['email'];
@@ -11,7 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
     $_SESSION['user'] = $row;
-    header("location: ../home/home.php?" . session_name() . '=' . session_id());
+    if($row['role'] === "admin")
+      header("location: ../admin/admin.php?" . session_name() . "=" . session_id());
+    else
+      header("location: ../home/home.php?" . session_name() . '=' . session_id());
   } else
     $error = "invalid Email or Password";
 }

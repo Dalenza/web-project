@@ -4,6 +4,10 @@ if (!isset($_SESSION['user'])) {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
 }
+if($_SESSION['user']['role'] === 'admin')
+  $link = "../admin/admin.php";
+else
+  $link = "../home/home.php";
 ?>
 
 
@@ -23,11 +27,11 @@ if (!isset($_SESSION['user'])) {
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="../home/home.php"><img src="../assets/b.png" alt="" /></a>
+        <a class="img" href="<?php echo $link; ?>"><img src="../assets/b.png" alt="" /></a>
       </div>
       <div class="nav">
         <ul class="nav-items">
-          <li class="nav-item"><a class="link" href="../home/home.php">Home</a></li>
+          <li class="nav-item"><a class="link" href="<?php echo $link; ?>">Home</a></li>
           <li class="nav-item">
             <a class="link" href="../about/about.php">About us</a>
           </li>

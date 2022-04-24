@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="../home/home.css" />
   <title>Study resources</title>
 
   <script>
@@ -67,6 +67,19 @@ if (!isset($_SESSION['user'])) {
           <label for="category">category:</label>
           <select name="category" id="category">
             <option value="">---</option>
+            <option value="cours">cours</option>
+            <option value="serie">serie</option>
+            <option value="examen principal">examen</option>
+            <option value="examen partiel">ds</option>
+          </select>
+        </div>
+        <div class="select">
+          <label for="year">year:</label>
+          <select id="year" name="year">
+            <option value="">---</option>
+            <option value="1">1st</option>
+            <option value="2">2nd</option>
+            <option value="3">3rd</option>
           </select>
         </div>
         <div class="select">
@@ -75,14 +88,9 @@ if (!isset($_SESSION['user'])) {
             <option value="">---</option>
           </select>
         </div>
-        <div class="select">
-          <label for="year">year:</label>
-          <select id="year" name="year">
-            <option value="">---</option>
-          </select>
-        </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
+      
 
 
 
@@ -93,19 +101,41 @@ if (!isset($_SESSION['user'])) {
         $category = $_POST['category'];
         $subject = $_POST['subject'];
         $year = $_POST['year'];
-        $query = "SELECT * FROM RESOURCES WHERE CATEGORY = \"$category\" and SUBJECT = \"$subject\" and YEAR = \"$year\"";
+        $query = "SELECT * FROM RESOURCES";
+        $test = false;
+        if($category != ""){
+          $test = true;
+          $query .= " WHERE CATEGORY = \"$category\"";
+        }
+        if($subject != ""){
+          if($test)
+            $query .= " and SUBJECT = \"$subject\"";
+          else
+            $query .= " WHERE SUBJECT = \"$subject\"";
+          $test = true;
+        }
+        if($year != ""){
+          if($test)
+            $query .= " and YEAR = \"$year\"";
+          else
+            $query .= " WHERE YEAR = \"$year\"";
+        }
         $res = mysqli_query($conn, $query);
         if (mysqli_num_rows($res) > 0) {
           echo "<div class='pdf-cards'>";
-          echo "<div class='pdf-cards-header'><span>title</span><span>category</span><span>subject</span><span>year</span></div>";
+          echo "<div class='pdf-cards-header'>";
+          echo "<span>title</span><span>category</span><span>year</span><span>subject</span>";
+          echo "</div>";
           while ($row = mysqli_fetch_assoc($res)) {
-
-
             echo "<div class='pdf-card'>";
-            echo "<div class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></div>";
-            echo "<div class='category'>" . $row['category'] . "</div>";
-            echo "<div class='subject'>" . $row['subject'] . "</div>";
-            echo "<div class='year'>" . $row['year'] . "</div>";
+            echo "<span class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></span>";
+            echo "<span class='category'>" . $row['category'] . "</span>";
+            echo "<span class='year'>" . $row['year'] . "</span>";
+            echo "<span class='subject'>" . $row['subject'] . "</span>";
+            echo "<form method='POST' action='../delete.php'>
+            <a href='../delete.php'>delete</a>
+            </form>";
+            // echo "<a href=\"delete.php\">" . "update</a>";
             echo "</div>";
           }
 
@@ -122,7 +152,7 @@ if (!isset($_SESSION['user'])) {
     </main>
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
-  <script src="home.js"></script>
+  <script src="../home/home.js"></script>
 </body>
 
 </html>
