@@ -1,0 +1,249 @@
+package Page_Object_Model.webpages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage {
+    //Page URL
+    private static String PAGE_URL = "https://github.com/";
+    private WebDriver driver;
+    
+    private SignInPage conn = new SignInPage(driver);
+    
+    
+    //Locators
+   //SignIn Button
+    @FindBy(xpath = "//a[@class='HeaderMenu-link no-underline mr-3']")
+    private WebElement signInButton;
+    //UserAvatar
+    @FindBy(xpath = "//span[@class='flex-shrink-0 css-truncate css-truncate-target']")
+    private WebElement userAvatar;
+
+    //Constructor
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+        driver.get(PAGE_URL);
+        //Initialise Elements
+        PageFactory.initElements(driver, this);
+    }
+
+    public void clickSignInButton() {
+        signInButton.click();
+    }
+
+    public String getNameOfLoggedInUser() {
+        return userAvatar.getText();
+    }
+    
+    
+    
+    public void signIn(String usersEmail, String password) {
+    	conn.setUserEmail(usersEmail);
+    	conn.setUserPassword(password);
+    	conn.clickOnSubmit();
+    	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package Page_Object_Model.webpages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SignInPage {
+    private WebDriver driver;
+
+    //Locators
+    @FindBy(xpath = "//h1")
+    private WebElement heading;
+
+    @FindBy(xpath = "//input[@class ='btn btn-primary btn-block']")
+    private WebElement submitButton;
+
+    @FindBy(xpath = "//input[@id='login_field']")
+    private WebElement userEmail;
+
+    @FindBy(xpath = "//input[@id='password']")
+    private WebElement password;
+
+    @FindBy(xpath = "//div[@class='container-lg px-2']")
+    private WebElement signInError;
+
+    //Constructor
+    public SignInPage(WebDriver driver) {
+        this.driver = driver;
+        //Initialise Elements
+        PageFactory.initElements(driver, this);
+    }
+
+    public void setUserEmail(String usersEmail) {
+        userEmail.clear();
+        userEmail.sendKeys(usersEmail);
+    }
+
+    public void setUserPassword(String usersPassword) {
+        password.clear();
+        password.sendKeys(usersPassword);
+    }
+
+    public void signIn(String usersEmail, String password) {
+        if (isPageOpened()) {
+            setUserEmail(usersEmail);
+            setUserPassword(password);
+            clickOnSubmit();
+        }
+    }
+    //Check if page is opened
+    public boolean isPageOpened() {
+        return heading.getText().contains("Sign in to GitHub");
+    }
+
+    public void clickOnSubmit() {
+        submitButton.click();
+    }
+
+    public boolean errorMessageIsVisible() {
+        return signInError.isDisplayed();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package Page_Object_Model.tests;
+
+import Page_Object_Model.webpages.HomePage;
+import Page_Object_Model.webpages.SignInPage;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class SignInPageTest {
+    private WebDriver driver;
+
+	@Before
+    public void setUp() {
+    	//setting the driver executable
+    System.setProperty("webdriver.edge.driver", "C:\\edgedriver_win64\\msedgedriver.exe");
+    
+        //Use Edge driver
+        driver = new ChromeDriver();
+       // wait for the element to appear before the exception occurs
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void testSignInWithValidCredentials() {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickSignInButton();
+        //Create object of SignInPage
+        SignInPage signInPage = new SignInPage(driver);
+        //Check if page is opened
+
+        Assert.assertTrue(signInPage.isPageOpened());
+        signInPage.signIn("hajer.ouerghi@fst.utm.tn", "hajer");
+
+        //Verifying whether user is logged in
+       Assert.assertEquals("hajer-ouerghi", homePage.getNameOfLoggedInUser());
+    }
+
+   @Test
+    public void testSignInWithInvalidPassword() {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickSignInButton();
+        SignInPage signInPage = new SignInPage(driver);
+        signInPage.signIn("hajer.ouerghi@fst.utm.tn", "hajer");
+
+        //Check the visibility of error message, when the wrong password is entered
+        Assert.assertTrue(signInPage.errorMessageIsVisible());
+   }
+
+    @Test
+    public void testSignInWithInvalidEmail() {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickSignInButton();
+        SignInPage signInPage = new SignInPage(driver);
+        signInPage.signIn("wrongEmail", "hajer");
+
+        //Check the visibility of error message, when the wrong email is entered
+        Assert.assertTrue(signInPage.errorMessageIsVisible());
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+        System.out.println ("end of test");
+    }
+}

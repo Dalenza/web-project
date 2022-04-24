@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charest="utf-8">
+<style>
+.col-25, .col-75{float:left;}
+.col-25{width:25%}
+.col-75{width:75%}
+</style>
+</head>
+<body>
+<form name="form" method="post" action="aa.php">
+<fieldset>
+<legend>Vos coordonnées</legend>
+<div class="container">
+<div class="col-25">
+<label for="lname">Nom:
+</div>
+<div class="col-75">
+<input name="lname" id="lname" type="text" value="votre nom">
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="fname">Prenom:
+</div>
+<div class="col-75">
+<input name="fname" id="fname" type="text" value="votre prenom">
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="date">Date de naissance:
+</div>
+<div class="col-75">
+<input name="date" id="date" type="date">
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="mail">mail:
+</div>
+<div class="col-75">
+<input name="mail" id="mail" type="email" value="votre mail">
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="site">Votre Site:
+</div>
+<div class="col-75">
+<input name="site" id="site" type="url">
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="pass">code:
+</div>
+<div class="col-75">
+<input name="pass" id="pass" type="password">
+</div>
+</div>
+
+<div class="container">
+<div class="col-25">
+<p>Genre</p>
+</div>
+<div class="col-75">
+<input name="genre" id="masculin" type="radio" value="masculin">Homme<br>
+<input name="genre" id="feminin" type="radio" value="feminin">femme
+</div>
+</div>
+
+
+<div class="container">
+<div class="col-25">
+<label for="pays">Pays:
+</div>
+<div class="col-75">
+<select id="pays" name="pays" value="Votre pays">
+<option value="Tunisie">Tunisie</option>
+<option value="Algerie">algerie</option>
+<option value="Egypte">egypte</option>
+</select>
+</div>
+</div>
+
+
+</fieldset>
+
+<fieldset>
+</fieldset>
+
+
+<fieldset>
+</fieldset>
+</form>
+</body>
