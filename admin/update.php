@@ -1,10 +1,11 @@
 <?php
   session_start();
   if($_SERVER['REQUEST_METHOD'] != 'POST'){
-    echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
+    // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
     header('location:index/index.php');
+    die();
   }
-  require_once "config.php";
+  require_once "../base/config.php";
   $id = $_POST['id'];
   $newname = $_POST['filename'];
   $category = $_POST['category'];
@@ -22,15 +23,15 @@
     if($names[$i][0] == $newname and $newname != $oldname['FILENAME']){
       $msg = "Sorry, but this name is already used, try another one";
       $_SESSION['msg'] = $msg;
-      header("location: admin/admin.php");
+      header("location: admin.php");
       die();
     }
   }
   $query = "UPDATE RESOURCES SET filename = '" . $newname . "' , category = '" . $category ."', subject = '" . $subject  . "', year = '" . $year . "' WHERE ID = " . $id;
-  if(mysqli_query($conn, $query) and rename('resources/' . $oldname['FILENAME'], 'resources/' . $newname))
+  if(mysqli_query($conn, $query) and rename('../resources/' . $oldname['FILENAME'], '../resources/' . $newname))
     $msg = "Document updated successfully";
   else
     $msg = "something went wrong";
   $_SESSION['msg'] = $msg;
   mysqli_close($conn);
-  header("location: admin/admin.php");
+  header("location: admin.php");

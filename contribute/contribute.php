@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
+  die();
 }
 if($_SESSION['user']['role'] === 'admin')
   $link = "../admin/admin.php";
@@ -39,7 +40,7 @@ else
             <a class="link" href="<?php $_SERVER['PHP_SELF'] ?>">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../logout.php">Log out</a>
+            <a class="link" href="../base/logout.php">Log out</a>
           </li>
         </ul>
       </div>
@@ -47,11 +48,11 @@ else
     <main class="content-wrapper">
       <h2 class="welcome">Don't see what you're looking for</h2>
       <h3 class="search">Help us enrich our database!</h3>
-      <form class="form" method="POST" action="../upload.php" enctype="multipart/form-data">
-        <!-- <div class="form-control">
-                    <label for="title">title:</label>
-                    <input type="text" name="title" id="title" required placeholder="exp: examen analyse L1Sem1">
-                </div> -->
+      <form class="form" method="POST" action="upload.php" enctype="multipart/form-data">
+        <div class="form-control">
+          <label for="title">title:</label>
+          <input type="text" name="title" id="title" required placeholder="exp: examen analyse L1Sem1">
+        </div>
         <div class="form-control">
           <label for="category">category:</label>
           <div class="select">

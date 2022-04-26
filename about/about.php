@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
+  die();
 }
 if($_SESSION['user']['role'] === 'admin')
   $link = "../admin/admin.php";
@@ -40,7 +41,7 @@ else
             <a class="link" href="../contribute/contribute.php">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../logout.php">Log out</a>
+            <a class="link" href="../base/logout.php">Log out</a>
           </li>
         </ul>
       </div>
