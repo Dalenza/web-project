@@ -1,5 +1,5 @@
 firstYearSubjects = ["analyse", "algebre"];
-secondYearSubjects = ["theorie de langage", "technique de compilation", "web"];
+secondYearSubjects = ["theorie de langage", "technique de compilation", "web", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"];
 thirdYearSubjects = ["framework"];
 
 initSubjectMenu();
