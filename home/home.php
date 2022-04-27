@@ -47,7 +47,7 @@ if (!isset($_SESSION['user'])) {
         <ul class="nav-items">
           <li class="nav-item"><a class="link" href="<?php $_SERVER['PHP_SELF'] ?>">Home</a></li>
           <li class="nav-item">
-            <a class="link" href="../about/about.php">About usssss</a>
+            <a class="link" href="../about/about.php">About us</a>
           </li>
           <li class="nav-item">
             <a class="link" href="../contribute/contribute.php">Contribute</a>
