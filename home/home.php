@@ -1,9 +1,10 @@
 <?php
-  session_start();
-  if(!isset($_SESSION['user'])){
-		// echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
-    header('location:../index/index.php');
-    }
+session_start();
+if (!isset($_SESSION['user'])) {
+  // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
+  header('location:../index/index.php');
+  die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,34 +19,26 @@
   <title>Study resources</title>
 
   <script>
-        function func() {
-            document.getElementsByClassName("pop-up")[0].style.display = 'none';
-            document.getElementsByClassName("modal")[0].style.display = 'none';
-        }
+    function func() {
+      document.getElementsByClassName("pop-up")[0].style.display = 'none';
+      document.getElementsByClassName("modal")[0].style.display = 'none';
+    }
   </script>
 
 
 </head>
 
 <body>
-  <?php
-      if(isset($_SESSION['msg'])){
-          echo "<div class='modal'></div>";
-          echo "<div class='pop-up'>";
-          echo "<p style='color: #000;'>" . $_SESSION['msg'] . "</p>";
-          echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
-          echo "</div>";
-          unset($_SESSION['msg']);
-      }
-    ?>
+<?php require_once "../base/renderErrorMessage.php"; ?>
+
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="<?php $_SERVER['PHP_SELF']?>"><img src="../assets/b.png" alt="" /></a>
+        <a class="img" href="<?php $_SERVER['PHP_SELF'] ?>"><img src="../assets/b.png" alt="" /></a>
       </div>
       <div class="nav">
         <ul class="nav-items">
-          <li class="nav-item"><a class="link" href="<?php $_SERVER['PHP_SELF']?>">Home</a></li>
+          <li class="nav-item"><a class="link" href="<?php $_SERVER['PHP_SELF'] ?>">Home</a></li>
           <li class="nav-item">
             <a class="link" href="../about/about.php">About us</a>
           </li>
@@ -53,7 +46,7 @@
             <a class="link" href="../contribute/contribute.php">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../logout.php">Log out</a>
+            <a class="link" href="../base/logout.php">Log out</a>
           </li>
         </ul>
       </div>
@@ -62,8 +55,8 @@
       <h1>Hi, <b style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
-      <form class="filters" id="filters" method="POST" action="<?php  $_SERVER['PHP_SELF'] ?>">
-      <div class="select">
+      <form class="filters" id="filters" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">
+        <div class="select">
           <label for="category">category:</label>
           <select name="category" id="category">
             <option value="">---</option>
@@ -90,43 +83,12 @@
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
-      <div class="pdf-cards">
-        <div class="pdf-cards-header">
-          <span>title</span><span>category</span><span>year</span><span>subject</span>
-        </div>
-      </div>
       
 
 
 
-<?php
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        require_once "../config.php";
-        $category = $_POST['category'];
-        $subject = $_POST['subject'];
-        $year = $_POST['year'];
-        $query = "SELECT * FROM RESOURCES WHERE CATEGORY = \"$category\" and SUBJECT = \"$subject\" and YEAR = \"$year\"";
-        $res = mysqli_query($conn, $query);
-        if(mysqli_num_rows($res) > 0){
-          while($row = mysqli_fetch_assoc($res)){
-            echo "<div class='pdf-card'>";
-            echo "<span class='title'>"."<a href='../resources/".$row['filename']."' download>".$row['filename']."</a></span>";
-            echo "<span class='category'>".$row['category']."</span>";
-            echo "<span class='year'>".$row['year']."</span>";
-            echo "<span class='subject'>".$row['subject']."</span>";
-            echo "</div>";
-          }
 
-
-          echo "</div>";
-        }
-        else{
-          echo "aucun document trouvé";
-        }
-        mysqli_close($conn);
-      }
-
-?>
+      <?php require_once "user_pdf_cards.php"; ?>
 
     </main>
     <footer>&copy;2022 Study resources ISI</footer>

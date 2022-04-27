@@ -10,7 +10,7 @@ html {
 :root {
   --body-bg-color: #242423;
   --text-color: #333533;
-  --yellow: #F5CB5C;
+  --yellow: #f5cb5c;
   --hd-color: #242423;
   --primary-font: "Inconsolata", monospace;
   --hd-ft-size: 2rem;
@@ -24,7 +24,6 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
 
 header {
   display: flex;
@@ -84,7 +83,6 @@ select {
   padding-bottom: 4rem;
 }
 
-
 .container {
   width: 100%;
   max-width: 680px;
@@ -101,7 +99,7 @@ select {
   max-width: 320px;
 }
 
-.form-control>input {
+.form-control > input {
   padding: 0.25rem 0.5rem;
   margin: 0.5rem 0;
   border-radius: 12px;
@@ -110,25 +108,24 @@ select {
   font-family: var(--primary-font);
 }
 
-.form-control>input:focus {
+.form-control > input:focus {
   outline: none;
 }
 
-.form-control.error>input {
+.form-control.error > input {
   border: 2px solid #e74c3c;
 }
 
-.form-control.error>.error-msg {
+.form-control.error > .error-msg {
   visibility: visible;
   color: #e74c3c;
 }
 
-
-.form-control.success>input {
+.form-control.success > input {
   border: 2px solid #2ecc71;
 }
 
-.form-control.success>.error-msg {
+.form-control.success > .error-msg {
   visibility: hidden;
 }
 
@@ -201,7 +198,7 @@ select {
   opacity: 0.9;
 }
 
-.pop-up>p {
+.pop-up > p {
   margin-left: calc(175px - 112px);
 }
 
@@ -210,7 +207,6 @@ select {
   display: block;
   margin-top: -50px;
 }
-
 
 footer {
   position: absolute;
