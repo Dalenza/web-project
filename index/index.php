@@ -5,23 +5,10 @@ if (isset($_SESSION['user'])){
     header("location: ../admin/admin.php");
   else
     header('location: ../home/home.php');
+  die();
 }
-require_once "../config.php";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $mail = $_POST['email'];
-  $password = $_POST['password'];
-  $query = "SELECT * FROM USERS WHERE MAIL = '$mail' and PASS = '$password'";
-  $res = mysqli_query($conn, $query);
-  if (mysqli_num_rows($res) > 0) {
-    $row = mysqli_fetch_assoc($res);
-    $_SESSION['user'] = $row;
-    if($row['role'] === "admin")
-      header("location: ../admin/admin.php?" . session_name() . "=" . session_id());
-    else
-      header("location: ../home/home.php?" . session_name() . '=' . session_id());
-  } else
-    $error = "invalid Email or Password";
-}
+require_once "../base/config.php";
+require_once "connexion.php";
 mysqli_close($conn);
 ?>
 <!DOCTYPE html>
@@ -46,15 +33,7 @@ mysqli_close($conn);
 </head>
 
 <body>
-  <?php
-  if (isset($error)) {
-    echo "<div class='modal'></div>";
-    echo "<div class='pop-up'>";
-    echo "<p>$error</p>";
-    echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
-    echo "</div>";
-  }
-  ?>
+  <?php require_once "../base/renderErrorMessage.php"; ?>
   <div class="container">
     <form class="left" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
       <div class="left__header">

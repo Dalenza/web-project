@@ -1,24 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['user']))
-  header('location: ../home/home.php');
-require_once "../config.php";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $fname = $_POST['fname'];
-  $lname = $_POST['lname'];
-  $email = $_POST['email'];
-  $password = $_POST['pw'];
-  $query = "SELECT * FROM USERS WHERE MAIL = '$email'";
-  if (mysqli_num_rows(mysqli_query($conn, $query)) > 0)
-    $res = "Utilisateur deja Existant ou Email deja utilisé";
-  else {
-    $query = "INSERT INTO USERS(FNAME, LNAME, MAIL, PASS, ROLE) values('$fname', '$lname', '$email', '$password', 'user')";
-    if (mysqli_query($conn, $query))
-      $res = "utilisateur ajouté avec succés";
-    else
-      $res = "something went wrong";
-  }
+if (isset($_SESSION['user'])){
+  header('location: ../index/index.php');
+  die();
 }
+require_once "../base/config.php";
+require_once "create_user.php";
 mysqli_close($conn);
 ?>
 
@@ -47,15 +34,7 @@ mysqli_close($conn);
 </head>
 
 <body>
-  <?php
-  if (isset($res)) {
-    echo "<div class='modal'></div>";
-    echo "<div class='pop-up'>";
-    echo "<p>$res</p>";
-    echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
-    echo "</div>";
-  }
-  ?>
+  <?php require_once "../base/renderErrorMessage.php" ?>
   <form class="container" id="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
     <h1>Sign up with your email</h1>
     <div class="form-control">

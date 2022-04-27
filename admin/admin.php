@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['user'])) {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
+  die();
 }
 ?>
 
@@ -28,16 +29,8 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 <body>
-  <?php
-  if (isset($_SESSION['msg'])) {
-    echo "<div class='modal'></div>";
-    echo "<div class='pop-up'>";
-    echo "<p style='color: #000;'>" . $_SESSION['msg'] . "</p>";
-    echo "<img src='../assets/x-button-327024.png' class='x' onclick='func()'>";
-    echo "</div>";
-    unset($_SESSION['msg']);
-  }
-  ?>
+<?php require_once "../base/renderErrorMessage.php"; ?>
+
   <div class="wrapper">
     <header>
       <div class="logo">
@@ -53,7 +46,7 @@ if (!isset($_SESSION['user'])) {
             <a class="link" href="../contribute/contribute.php">Contribute</a>
           </li>
           <li class="nav-item">
-            <a class="link" href="../logout.php">Log out</a>
+            <a class="link" href="../base/logout.php">Log out</a>
           </li>
         </ul>
       </div>
@@ -95,68 +88,7 @@ if (!isset($_SESSION['user'])) {
 
 
 
-      <?php
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        require_once "../config.php";
-        $category = $_POST['category'];
-        $subject = $_POST['subject'];
-        $year = $_POST['year'];
-        $query = "SELECT * FROM RESOURCES";
-        $test = false;
-        if($category != ""){
-          $test = true;
-          $query .= " WHERE CATEGORY = \"$category\"";
-        }
-        if($subject != ""){
-          if($test)
-            $query .= " and SUBJECT = \"$subject\"";
-          else
-            $query .= " WHERE SUBJECT = \"$subject\"";
-          $test = true;
-        }
-        if($year != ""){
-          if($test)
-            $query .= " and YEAR = \"$year\"";
-          else
-            $query .= " WHERE YEAR = \"$year\"";
-        }
-        $res = mysqli_query($conn, $query);
-        if (mysqli_num_rows($res) > 0) {
-          echo "<div class='pdf-cards'>";
-          echo "<div class='pdf-cards-header'>";
-          echo "<span>title</span><span>category</span><span>year</span><span>subject</span>";
-          echo "</div>";
-          while ($row = mysqli_fetch_assoc($res)) {
-            echo "<div class='pdf-card'>";
-            echo "<span class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></span>";
-            echo "<span class='category'>" . $row['category'] . "</span>";
-            echo "<span class='year'>" . $row['year'] . "</span>";
-            echo "<span class='subject'>" . $row['subject'] . "</span>";
-            echo "<form method='POST' action='../delete.php'>
-            <input name='id' value='" . $row['id'] ."' hidden>
-            <button type='submit'>Delete</button>
-            </form>";
-            echo "<form method='POST' action='../update.php'>
-            <input name='id' value='" . $row['id'] ."' hidden>
-            <input name='filename' value='" . $row['filename'] ."'>
-            <input name='category' value='" . $row['category'] ."'>
-            <input name='subject' value='" . $row['subject'] ."'>
-            <input name='year' value='" . $row['year'] ."'>
-            <button type='submit'>update</button>
-            </form>";
-            // echo "<a href=\"delete.php\">" . "update</a>";
-            echo "</div>";
-          }
-
-
-          echo "</div>";
-        } else {
-          echo "aucun document trouvé";
-        }
-        mysqli_close($conn);
-      }
-
-      ?>
+      <?php require_once "admin_pdf_cards.php"; ?>
 
     </main>
     <footer>&copy;2022 Study resources ISI</footer>
