@@ -15,7 +15,7 @@ if (!isset($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="../home/home.css" />
+  <link rel="stylesheet" href="../admin/admin.css" />
   <title>Study resources</title>
 
   <script>
@@ -83,7 +83,40 @@ if (!isset($_SESSION['user'])) {
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
-      
+      <div class="pdf-cards">
+        <div class="pdf-cards-header">
+          <span>title</span>
+          <span>category</span>
+          <span>year</span>
+          <span>subject</span>
+        </div>
+        <div class="pdf-card">
+          <span class="title">roger</span>
+          <span class="category">cours</span>
+          <span class="year">2nd</span>
+          <span class="subject">web</span>
+          <div class="slide-in">
+            <div class="delete-btn">Delete</div>
+            <div class="update-btn">Update</div>
+            <!-- <div class="delete-modal">
+              <form method="POST" action="delete.php">
+                <input name="id" value="12" hidden="">
+                <input type="submit" value="Delete">
+              </form>
+            </div>
+            <div class="update-modal">
+              <form method="POST" action="update.php">
+                <input name="id" value="12" hidden="">
+                <input name="filename" value="Web.pdf" required="">
+                <input name="category" value="cours" required="">
+                <input name="subject" value="web" required="">
+                <input name="year" value="1" required="">
+                <input type="submit" value="Update">
+              </form>
+            </div> -->
+          </div>
+        </div>
+      </div>
 
 
 
@@ -94,6 +127,7 @@ if (!isset($_SESSION['user'])) {
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
   <script src="../home/home.js"></script>
+  <script src="admin.js"></script>
 </body>
 
 </html>
