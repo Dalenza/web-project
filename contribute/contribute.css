@@ -1,15 +1,12 @@
 .link {
-  color: #fff;
+  color: var(--yellow);
   font-size: 18px;
 }
 
-.link:hover {
-  text-decoration: none;
-  color: #fff;
-}
-
 .link:hover::before {
-  background-color: #f5cc5ce5;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--yellow);
 }
 
 .content-wrapper {
