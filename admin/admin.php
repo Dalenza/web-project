@@ -90,30 +90,35 @@ if (!isset($_SESSION['user'])) {
           <span>year</span>
           <span>subject</span>
         </div>
-        <div class="pdf-card">
-          <span class="title">roger</span>
-          <span class="category">cours</span>
-          <span class="year">2nd</span>
-          <span class="subject">web</span>
-          <div class="slide-in">
-            <div class="delete-btn">Delete</div>
-            <div class="update-btn">Update</div>
-            <!-- <div class="delete-modal">
-              <form method="POST" action="delete.php">
-                <input name="id" value="12" hidden="">
-                <input type="submit" value="Delete">
-              </form>
-            </div>
-            <div class="update-modal">
+        <div class="delete-modal">
+          <h2>Are you sure you want to delete this!?</h2>
+          <div class="btns">
+            <form method="POST" action="delete.php">
+              <input name="id" value="12" hidden="">
+              <input type="submit" value="Delete">
+            </form>
+            <span id="no">No</span>
+          </div>
+        </div>
+        <div class="update-modal">
               <form method="POST" action="update.php">
                 <input name="id" value="12" hidden="">
                 <input name="filename" value="Web.pdf" required="">
                 <input name="category" value="cours" required="">
                 <input name="subject" value="web" required="">
                 <input name="year" value="1" required="">
-                <input type="submit" value="Update">
+                <input id="update" type="submit" value="Update">
               </form>
-            </div> -->
+              <span id="close">close</span>
+        </div>
+        <div class="pdf-card">
+          <span class="title"><a href="#">roger</a></span>
+          <span class="category">cours</span>
+          <span class="year">2nd</span>
+          <span class="subject">web</span>
+          <div class="slide-in">
+            <div class="delete-btn">Delete</div>
+            <div class="update-btn">Update</div>
           </div>
         </div>
       </div>

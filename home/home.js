@@ -68,7 +68,7 @@ function renderUserAvatar() {
   const userAvatar = document.getElementById("img")
   const userName = document.getElementById("user-name");
   userNameValue = userName.innerText;
-  userAvatar.innerText = userNameValue[0] + userNameValue[1];
+  userAvatar.innerText = userNameValue[0].toUpperCase() + userNameValue[1];
   userAvatar.style.backgroundColor = backgroundColor;
 }
 

@@ -1,7 +1,17 @@
-:root {
+::-webkit-scrollbar {
+  background-color: var(--body-bg-color);
+}
 
-  scrollbar-color: var(--yellow) var(--body-bg-color);
-  scrollbar-width: auto;
+::-webkit-scrollbar-button {
+  background: var(--yellow);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--body-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
 }
 
 body {
@@ -144,7 +154,7 @@ select {
 }
 
 .slide-in.show {
-  right: 0;
+  right: -1px;
 }
 
 .delete-btn,
@@ -159,6 +169,113 @@ select {
   cursor: pointer;
   border-radius: 12px;
   transition: color 0.3s ease-in;
+}
+
+
+.delete-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.338);
+  background-color: var(--yellow);
+  color: var(--body-bg-color);
+  height: 200px;
+  width: 300px;
+}
+
+.delete-modal>h2 {
+  text-align: center;
+}
+
+.delete-modal>.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+#no,
+.btns input {
+  max-width: 100px;
+  border: 2px solid var(--body-bg-color);
+  border-radius: 5px;
+  background-color: var(--yellow);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+#no:hover,
+.btns input:hover {
+  background-color: var(--body-bg-color);
+  color: var(--yellow);
+}
+
+.delete-modal.is-open {
+  display: block;
+}
+
+.update-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.338);
+  background-color: var(--yellow);
+  color: var(--body-bg-color);
+}
+
+.update-modal>form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.update-modal>form>input {
+  background-color: var(--body-bg-color);
+  color: var(--yellow);
+  outline: none;
+  border: 2px solid var(--yellow);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.update-modal #update {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.update-modal>#close {
+  display: block;
+  cursor: pointer;
+  border: 2px solid var(--yellow);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.25rem auto;
+  transform: translateY(-20%);
+  background-color: var(--body-bg-color);
+  color: var(--yellow);
+  text-align: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.update-modal>#close:hover,
+.update-modal #update:hover {
+  background-color: var(--yellow);
+  color: var(--body-bg-color);
+  border: 2px solid var(--body-bg-color);
+}
+
+.update-modal.is-open {
+  display: block;
 }
 
 .title>a {
