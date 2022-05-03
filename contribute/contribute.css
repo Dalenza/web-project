@@ -13,7 +13,7 @@
 }
 
 .content-wrapper {
-  border: 2px solid #f5cc5c;
+  /* border: 2px solid #f5cc5c; */
 }
 
 .welcome {
@@ -42,18 +42,18 @@
   align-items: center;
 }
 
-.form-control > input {
+.form-control>input {
   font-size: var(--txt-ft-size);
 }
 
-.form-control > input[type="text"] {
+.form-control>input[type="text"] {
   height: 27px;
   background-color: var(--body-bg-color);
   color: var(--yellow);
   border: 2px solid var(--yellow);
 }
 
-.form-control > label {
+.form-control>label {
   color: #f5cc5c;
   margin-bottom: 0.25rem;
 }

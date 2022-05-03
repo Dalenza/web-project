@@ -65,24 +65,24 @@ else
           </div>
         </div>
         <div class="form-control">
+          <label for="year">year:</label>
+          <div class="select">
+            <select name="year" id="year" required>
+              <option value="1">1st</option>
+              <option value="2">2nd</option>
+              <option value="3">3rd</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-control">
           <label for="subject">subject:</label>
           <div class="select">
-            <select name="subject" required>
+            <select name="subject" id="subject" required>
               <option value="math">math</option>
               <option value="web">web</option>
               <option value="analyse">analyse</option>
               <option value="systeme d'exploitation">system d'exploitation</option>
               <option value="logique formelle">logique formelle</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-control">
-          <label for="year">year:</label>
-          <div class="select" required>
-            <select name="year">
-              <option value="1">1st</option>
-              <option value="2">2nd</option>
-              <option value="3">3rd</option>
             </select>
           </div>
         </div>
@@ -98,4 +98,5 @@ else
 
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
+  <script src="../home/home.js"></script>
 </body>

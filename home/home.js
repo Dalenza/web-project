@@ -1,6 +1,24 @@
-firstYearSubjects = ["analyse", "algebre"];
-secondYearSubjects = ["theorie de langage", "technique de compilation", "web"];
-thirdYearSubjects = ["framework"];
+firstYearSubjects = [
+  "analyse1", "algebre1", "algorithmique et structure de données", "atelier de programmation1", "système d'expoloitation1", "système logique et architecture des ordinateurs",
+  "logique formelle", "technologies multimédia", "Anglais1", "technique de communication1",
+  "algebre2", "analyse2", "algorithmique et complexité", "atelier de programmation2",
+  "programmation Python", "systeme d'exploitation2", "fondements des réseaux", "fondements des base de données",
+  "anglais2", "technique de communication2", "culture et compétences"
+];
+secondYearSubjects = [
+  "probabilité et statistiques", "théorie des langages et des automates", "graphes et optimisation",
+  "conception des systèmes d'information", "programmation java", "ingénierie des base de données",
+  "services des réseaux", "anglais3", "gestion d'entreprise", "outils de travail collaboratif",
+  "systèmes d'information géographique", "entrepôt de données", "administration des bases de données",
+  "techniques d'indexation et de recherche", "technologies et programmation web", "techniques de compilation",
+  "tests des logiciels", "fondements de l'intelligence artificielle", "anglais4", "droit informatique", "projet fedéré",
+  "ERP"
+];
+thirdYearSubjects = [
+  "framework et technologie Big", "virtualisation et cloud", "développement mobile",
+  "développement d'applications réparties", "Machine learning", "sécurité informatique", "Architecture SOA et services web",
+  "anglais5", "entrepreuneriat", "préparation à l'environnement professionnel"
+];
 
 initSubjectMenu();
 
