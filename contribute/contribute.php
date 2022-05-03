@@ -28,7 +28,7 @@ else
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="<?php echo $link; ?>"><img src="../assets/b.png" alt="" /></a>
+        <a id="img" href="<?php echo $link; ?>"></a>
       </div>
       <div class="nav">
         <ul class="nav-items">

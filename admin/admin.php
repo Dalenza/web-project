@@ -34,7 +34,7 @@ if (!isset($_SESSION['user'])) {
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="<?php $_SERVER['PHP_SELF'] ?>"><img src="../assets/b.png" alt="" /></a>
+        <a id="img" href="<?php $_SERVER['PHP_SELF'] ?>"></a>
       </div>
       <div class="nav">
         <ul class="nav-items">
@@ -52,7 +52,7 @@ if (!isset($_SESSION['user'])) {
       </div>
     </header>
     <main class="content-wrapper">
-      <h1>Hi, <b style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
+      <h1>Hi, <b id="user-name" style="color: #f5cc5c"><?php echo $_SESSION['user']['fname']; ?></b>. Welcome to our site.</h1>
       <h2 class="welcome">We complement your learning journey</h2>
       <h3 class="search">Browse by category, subject or year</h3>
       <form class="filters" id="filters" method="POST" action="<?php $_SERVER['PHP_SELF'] ?>">

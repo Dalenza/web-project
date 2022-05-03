@@ -29,7 +29,7 @@ else
   <div class="wrapper">
     <header>
       <div class="logo">
-        <a class="img" href="<?php echo $link; ?>"><img src="../assets/b.png" alt="" /></a>
+        <a id="img" href="<?php echo $link; ?>"></a>
       </div>
       <div class="nav">
         <ul class="nav-items">
@@ -59,6 +59,7 @@ else
     </main>
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
+  <script src="../home/home.js"></script>
 </body>
 
 </html>
