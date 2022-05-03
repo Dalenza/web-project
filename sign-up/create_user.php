@@ -15,6 +15,3 @@
         $_SESSION['msg'] = "something went wrong";
     }
   }
-  else{
-    header('location: ../index/index.php');
-  }
