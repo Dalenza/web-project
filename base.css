@@ -186,14 +186,18 @@ select {
 /* my code */
 .pop-up {
   position: absolute;
-  background-color: #fff;
-  top: calc(50% - 45px);
-  left: calc(50% - 200px);
+  background-color: var(--yellow);
+  color: var(--body-bg-color);
+  /* top: calc(50% - 45px);
+  left: calc(50% - 200px); */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 350px;
   height: 90px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   z-index: 2;
   border-radius: 15px;
 }
@@ -208,13 +212,17 @@ select {
 }
 
 .pop-up>p {
-  margin-left: calc(175px - 112px);
+  /* margin-left: calc(175px - 112px); */
+  text-align: center;
 }
 
 .x {
+  position: absolute;
+  right: 3%;
   width: 5%;
   display: block;
   margin-top: -50px;
+  cursor: pointer;
 }
 
 footer {
