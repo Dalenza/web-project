@@ -174,7 +174,7 @@ select {
   transform: translate(-50%, -50%);
   padding: 1.25rem;
   border-radius: 12px;
-  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.338);
+  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.24);
   background-color: var(--yellow);
   color: var(--body-bg-color);
   height: 200px;
@@ -221,7 +221,7 @@ select {
   transform: translate(-50%, -50%);
   padding: 1.25rem;
   border-radius: 12px;
-  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.338);
+  box-shadow: 3px 3px 2px -1px rgba(0, 0, 0, 0.24);
   background-color: var(--yellow);
   color: var(--body-bg-color);
   max-width: none;
@@ -277,6 +277,10 @@ select {
   text-decoration: none;
   color: var(--body-bg-color);
   cursor: pointer;
+}
+
+.none {
+  display: none;
 }
 
 @media (max-width:650px) {

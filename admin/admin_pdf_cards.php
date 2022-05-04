@@ -37,8 +37,8 @@
               <span class='year'>" . $row['year'] . "</span>
               <span class='subject'>" . $row['subject'] . "</span>
               <div class='slide-in'>
-                <div class='delete-btn'>Delete</div>
-                <div class='update-btn'>Update</div>
+                <div class='delete-btn' onclick='showModal()'>Delete</div>
+                <div class='update-btn' onclick='showModal()'>Update</div>
               </div>
               <div class='update-modal'>
                 <form method='POST' action='update.php'>
@@ -49,7 +49,7 @@
                   <input name='year' value='".$row['year']."' required>
                   <input class='update' type='submit' value='Update'>
                 </form>
-              <span class='close'>close</span>
+              <span class='close' onclick='hideModal()'>close</span>
               </div>
               <div class='delete-modal'>
                 <h2>Are you sure you want to delete this!?</h2>
@@ -58,7 +58,7 @@
                     <input name='id' value='".$row['id']."' hidden>
                     <input type='submit' value='Delete'>
                   </form>
-                  <span class='no'>No</span>
+                  <span class='no' onclick='hideModal()'>No</span>
                 </div>
               </div>
             </div>";

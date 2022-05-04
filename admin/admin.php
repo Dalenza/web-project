@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'admin') {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
   die();
@@ -15,13 +15,21 @@ if (!isset($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="../admin/admin.css" />
+  <link rel="stylesheet" href="admin.css" />
   <title>Study resources</title>
 
   <script>
     function func() {
       document.getElementsByClassName("pop-up")[0].style.display = 'none';
       document.getElementsByClassName("modal")[0].style.display = 'none';
+    }
+    function hideModal() {
+      var element = document.getElementById("modal");
+      element.classList.add("none");
+    }
+    function showModal() {
+      var element = document.getElementById("modal");
+      element.classList.remove("none");
     }
   </script>
 
@@ -30,7 +38,7 @@ if (!isset($_SESSION['user'])) {
 
 <body>
 <?php require_once "../base/renderErrorMessage.php"; ?>
-
+  <div id='modal' class="modal none"></div>
   <div class="wrapper">
     <header>
       <div class="logo">

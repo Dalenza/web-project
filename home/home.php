@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'user') {
   // echo "Vous n'etes pas autorisé à accéder <br> Veuillez contacter l'administrateur du site.";
   header('location:../index/index.php');
   die();
