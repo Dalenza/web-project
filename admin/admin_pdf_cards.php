@@ -30,29 +30,6 @@
           <span>title</span><span>category</span><span>year</span><span>subject</span>
           </div>";
           while ($row = mysqli_fetch_assoc($res)) {
-            // echo
-            // "<div class='delete-modal'>
-            //   <h2>Are you sure you want to delete this!?</h2>
-            //   <div class='btns'>
-            //     <form method='POST' action='delete.php'>
-            //       <input name='id' value='".$row['id']."' hidden>
-            //       <input type='submit' value='Delete'>
-            //     </form>
-            //     <span id='no'>No</span>
-            //   </div>
-            // </div>";
-            // echo 
-            // "<div class='update-modal'>
-            //   <form method='POST' action='update.php'>
-            //     <input name='id' value='".$row['id']."' hidden>
-            //     <input name='filename' value='".$row['filename']."' required>
-            //     <input name='category' value='".$row['category']."' required>
-            //     <input name='subject' value='".$row['subject']."' required>
-            //     <input name='year' value='".$row['year']."' required>
-            //     <input id='update' type='submit' value='Update'>
-            //   </form>
-            //   <span id='close'>close</span>
-            // </div>";
             echo 
             "<div class='pdf-card'>
               <span class='title'>" . "<a href='../resources/" . $row['filename'] . "' download>" . $row['filename'] . "</a></span>
