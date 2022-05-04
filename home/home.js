@@ -67,4 +67,15 @@ function renderUserAvatar() {
   userAvatar.style.backgroundColor = backgroundColor;
 }
 
+function showNavBar() {
+  const hamburgerIcon = document.querySelector(".hamburger");
+  const navBar = document.querySelector(".nav");
+
+  hamburgerIcon.addEventListener("click", () => {
+    console.log("clicked")
+    navBar.classList.toggle("show");
+  })
+}
+
 renderUserAvatar();
+showNavBar();

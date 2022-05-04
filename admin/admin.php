@@ -16,6 +16,7 @@ if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'admin') {
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
   <link rel="stylesheet" href="admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Study resources</title>
 
   <script>
@@ -44,6 +45,9 @@ if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'admin') {
       <div class="logo">
         <a id="img" href="<?php $_SERVER['PHP_SELF'] ?>"></a>
       </div>
+      <button class="hamburger">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav">
         <ul class="nav-items">
           <li class="nav-item"><a class="link" href="<?php $_SERVER['PHP_SELF'] ?>">Home</a></li>

@@ -3,6 +3,24 @@ body {
   color: #fff;
 }
 
+h1 {
+  text-align: center;
+}
+
+.hamburger {
+  margin: 0.5rem;
+  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--yellow);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
 .link {
   color: var(--yellow);
   font-size: 18px;
@@ -27,12 +45,17 @@ body {
   margin: 0.5rem auto;
 } */
 
+.content-wrapper {
+  width: 100%;
+}
+
 .welcome {
   text-align: center;
 }
 
 .search {
   color: #f5cc5c;
+  text-align: center;
 }
 
 .filters {
@@ -47,7 +70,7 @@ body {
 }
 
 .btn.btn--browse {
-  max-width: 30ch;
+  max-width: 180px;
   max-height: 36px;
   align-self: end;
   border-radius: 0.5em;
@@ -82,7 +105,7 @@ select {
   margin: 0.5rem 0;
   max-height: 1200px;
   overflow-x: hidden;
-  width: 100%;
+  width: 80%;
 }
 
 .pdf-cards-header {
@@ -126,4 +149,100 @@ select {
   text-decoration: none;
   color: var(--body-bg-color);
   cursor: pointer;
+}
+
+.none {
+  display: none;
+}
+
+@media (max-width:650px) {
+
+  .hamburger {
+    position: relative;
+    z-index: 3;
+    display: block;
+  }
+
+  .nav {
+    padding: 3.5rem 2rem;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    background-color: var(--body-bg-color);
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav.show {
+    right: 0;
+  }
+
+  .nav-items {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin: .5rem 0;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters>.btn.btn--browse {
+    align-self: unset;
+  }
+
+  .pdf-cards {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .pdf-cards-header {
+    display: none;
+  }
+
+
+  .pdf-card {
+    display: flex;
+    min-height: 140px;
+  }
+
+  .pdf-card>.slide-in {
+    bottom: 0;
+    left: -100%;
+    width: 60%;
+    flex-direction: column;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .slide-in.show {
+    left: 0;
+  }
+
+  .pdf-card>.title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    font-size: 1.25rem;
+    background-color: var(--body-bg-color);
+    color: var(--yellow);
+  }
+
+  .pdf-card>.title>a {
+    color: var(--yellow);
+    width: 100%;
+    text-align: center;
+  }
+
+  .pdf-card>.category,
+  .pdf-card>.subject,
+  .pdf-card>.year {
+    display: none;
+  }
 }
