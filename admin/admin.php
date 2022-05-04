@@ -23,6 +23,14 @@ if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'admin') {
       document.getElementsByClassName("pop-up")[0].style.display = 'none';
       document.getElementsByClassName("modal")[0].style.display = 'none';
     }
+    function hideModal() {
+      var element = document.getElementById("modal");
+      element.classList.add("none");
+    }
+    function showModal() {
+      var element = document.getElementById("modal");
+      element.classList.remove("none");
+    }
   </script>
 
 
@@ -30,7 +38,7 @@ if (!isset($_SESSION['user']) or $_SESSION['user']['role'] != 'admin') {
 
 <body>
 <?php require_once "../base/renderErrorMessage.php"; ?>
-
+  <div id='modal' class="modal none"></div>
   <div class="wrapper">
     <header>
       <div class="logo">
