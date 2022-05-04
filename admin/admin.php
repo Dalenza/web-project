@@ -15,7 +15,7 @@ if (!isset($_SESSION['user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="../admin/admin.css" />
+  <link rel="stylesheet" href="admin.css" />
   <title>Study resources</title>
 
   <script>
@@ -101,15 +101,15 @@ if (!isset($_SESSION['user'])) {
           </div>
         </div>
         <div class="update-modal">
-              <form method="POST" action="update.php">
-                <input name="id" value="12" hidden="">
-                <input name="filename" value="Web.pdf" required="">
-                <input name="category" value="cours" required="">
-                <input name="subject" value="web" required="">
-                <input name="year" value="1" required="">
-                <input id="update" type="submit" value="Update">
-              </form>
-              <span id="close">close</span>
+          <form method="POST" action="update.php">
+            <input name="id" value="12" hidden="">
+            <input name="filename" value="Web.pdf" required="">
+            <input name="category" value="cours" required="">
+            <input name="subject" value="web" required="">
+            <input name="year" value="1" required="">
+            <input id="update" type="submit" value="Update">
+          </form>
+          <span id="close">close</span>
         </div>
         <div class="pdf-card">
           <span class="title"><a href="#">roger</a></span>
