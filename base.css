@@ -11,18 +11,19 @@ html {
 
 ::-webkit-scrollbar {
   background-color: var(--body-bg-color);
+  width: 8px;
 }
 
-::-webkit-scrollbar-button {
-  background: var(--yellow);
-}
 
 ::-webkit-scrollbar-track {
-  background-color: var(--body-bg-color);
+  background-color: rgba(0, 0, 0, 0.399);
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--yellow);
+  width: 5px;
+  border-radius: 5px;
 }
 
 :root {
@@ -136,6 +137,8 @@ select {
 }
 
 .form-control>input:focus {
+  border: 1px solid var(--body-bg-color);
+
   outline: none;
 }
 
