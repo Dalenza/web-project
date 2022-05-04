@@ -9,10 +9,6 @@
   background-color: var(--yellow);
 }
 
-.content-wrapper {
-  /* border: 2px solid #f5cc5c; */
-}
-
 .welcome {
   text-align: center;
   color: #fff;
@@ -20,6 +16,7 @@
 
 .search {
   color: #f5cc5c;
+  text-align: center;
 }
 
 .form {
@@ -103,4 +100,14 @@ select {
 
 footer {
   color: #fff;
+}
+
+@media (max-width:490px) {
+  header {
+    justify-content: center;
+  }
+
+  header>.logo {
+    display: none;
+  }
 }

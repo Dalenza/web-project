@@ -3,6 +3,10 @@ body {
   color: #fff;
 }
 
+h1 {
+  text-align: center;
+}
+
 .link {
   color: var(--yellow);
   font-size: 18px;
@@ -27,12 +31,17 @@ body {
   margin: 0.5rem auto;
 } */
 
+.content-wrapper {
+  width: 100%;
+}
+
 .welcome {
   text-align: center;
 }
 
 .search {
   color: #f5cc5c;
+  text-align: center;
 }
 
 .filters {
@@ -47,7 +56,7 @@ body {
 }
 
 .btn.btn--browse {
-  max-width: 30ch;
+  max-width: 180px;
   max-height: 36px;
   align-self: end;
   border-radius: 0.5em;
@@ -268,4 +277,59 @@ select {
   text-decoration: none;
   color: var(--body-bg-color);
   cursor: pointer;
+}
+
+@media (max-width:650px) {
+  .filters {
+    flex-direction: column;
+  }
+
+  .filters>.btn.btn--browse {
+    align-self: unset;
+  }
+
+  .pdf-cards {
+    display: flex;
+  }
+
+  .pdf-cards>* {
+    width: 50%;
+  }
+
+  .pdf-cards-header {
+    display: none;
+  }
+
+
+  .pdf-card {
+    min-height: 140px;
+  }
+
+  .pdf-card>* {
+    background-color: var(--body-bg-color);
+    color: var(--yellow);
+  }
+
+  .pdf-card>.title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    font-size: 1.25rem;
+  }
+
+  .pdf-card>.title>a {
+    color: var(--yellow);
+    width: 100%;
+    text-align: center;
+  }
+
+  .pdf-card>.category,
+  .pdf-card>.subject,
+  .pdf-card>.year {
+    display: none;
+  }
 }

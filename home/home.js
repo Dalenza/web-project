@@ -59,12 +59,7 @@ function updateSubjectsInSelectMenu(array) {
 
 
 function renderUserAvatar() {
-  let backgroundColors = [
-    "var(--yellow)", "#F5B25D", "#F57E5D", "#F5645D", "#F5E65D", "#E9F55D",
-    "#CFF55D", "#B5F55D", "#81F55D", "#F55DA4", "#665CF5", "#5CF5CC"
-  ]
-  let randomIndex = Math.floor(Math.random() * backgroundColors.length)
-  let backgroundColor = backgroundColors[randomIndex]
+  let backgroundColor = "#F5B25D"
   const userAvatar = document.getElementById("img")
   const userName = document.getElementById("user-name");
   userNameValue = userName.innerText;
