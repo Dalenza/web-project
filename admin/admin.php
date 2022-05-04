@@ -83,7 +83,7 @@ if (!isset($_SESSION['user'])) {
         </div>
         <input class="btn btn--browse" type="submit" value="search">
       </form>
-      <div class="pdf-cards">
+      <!-- <div class="pdf-cards">
         <div class="pdf-cards-header">
           <span>title</span>
           <span>category</span>
@@ -97,19 +97,19 @@ if (!isset($_SESSION['user'])) {
               <input name="id" value="12" hidden="">
               <input type="submit" value="Delete">
             </form>
-            <span id="no">No</span>
+            <span class="no">No</span>
           </div>
         </div>
         <div class="update-modal">
-          <form method="POST" action="update.php">
-            <input name="id" value="12" hidden="">
-            <input name="filename" value="Web.pdf" required="">
-            <input name="category" value="cours" required="">
-            <input name="subject" value="web" required="">
-            <input name="year" value="1" required="">
-            <input id="update" type="submit" value="Update">
-          </form>
-          <span id="close">close</span>
+              <form method="POST" action="update.php">
+                <input name="id" value="12" hidden="">
+                <input name="filename" value="Web.pdf" required="">
+                <input name="category" value="cours" required="">
+                <input name="subject" value="web" required="">
+                <input name="year" value="1" required="">
+                <input class="update" type="submit" value="Update">
+              </form>
+              <span class="close">close</span>
         </div>
         <div class="pdf-card">
           <span class="title"><a href="#">roger</a></span>
@@ -121,7 +121,7 @@ if (!isset($_SESSION['user'])) {
             <div class="update-btn">Update</div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 
