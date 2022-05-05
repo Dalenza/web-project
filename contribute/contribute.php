@@ -102,6 +102,7 @@ else
 
     <footer>&copy;2022 Study resources ISI</footer>
   </div>
+  <script src="../home/home.js"></script>
   <script>
     function showNavBar() {
       const hamburgerIcon = document.querySelector(".hamburger");
