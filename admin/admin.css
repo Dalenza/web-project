@@ -103,7 +103,7 @@ select {
 
 .pdf-cards {
   margin: 0.5rem 0;
-  max-height: 1200px;
+  /* max-height: 1200px; */
   overflow-x: hidden;
   width: 80%;
 }
