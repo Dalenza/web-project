@@ -101,13 +101,3 @@ select {
 footer {
   color: #fff;
 }
-
-@media (max-width:490px) {
-  header {
-    justify-content: center;
-  }
-
-  header>.logo {
-    display: none;
-  }
-}
